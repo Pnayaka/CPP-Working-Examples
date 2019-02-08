@@ -1,0 +1,80 @@
+1. It converts the class into a structure with only data members as follows.
+
+Before
+
+class Distance
+{
+	int iFeet;
+	float fInches;
+	public:
+		void setFeet(int); 		//prototype only
+		int getFeet(); 		//prototype only
+		void setInches(float); 	//prototype only
+		float getInches(); 		//prototype only
+};
+
+After
+
+struct Distance
+{
+	int iFeet;
+	float fInches;
+};
+
+2. It puts a declaration of the this pointer as a leading formal argument in the prototypes
+of all member functions as follows.
+
+Before
+void setFeet(int);
+
+After
+void setFeet(Distance * const, int);
+
+Before
+int getFeet();
+
+After
+int getFeet(Distance * const);
+
+
+3. It also modifies all the statements to access object members by accessing them through 
+the this pointer using the pointer-to-member access operator (->).
+
+Before
+void Distance::setFeet(int x)
+{
+	iFeet=x;
+}
+
+After
+void setFeet(Distance * const this, int x)
+{
+	this->iFeet=x;
+}
+
+Before
+int Distance::getFeet()
+{
+	return iFeet;
+}
+
+After
+int getFeet(Distance * const this)
+{
+	return this->iFeet;
+}
+
+4. It passes the address of invoking object as a leading parameter to each call to the member
+functions as follows.
+
+Before
+d1.setFeet(1);
+
+After
+setFeet(&d1,1);
+
+Before
+d1.setInches(1.1);
+
+After
+setInches(&d1,1.1);

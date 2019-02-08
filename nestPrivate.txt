@@ -1,0 +1,12 @@
+class A
+{
+	class B
+	{
+		/*
+		definition of class B
+		*/
+	};
+	/*
+	definition of class A
+	*/
+};

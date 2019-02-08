@@ -1,0 +1,17 @@
+class B; 		//forward declaration
+
+class A
+{
+	/*
+		rest of the class A
+	*/
+	friend void ab(const A&, const B&);
+};
+
+class B
+{
+	/*
+		rest of the class B
+	*/
+	friend void ab(const A&, const B&);
+};

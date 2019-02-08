@@ -1,0 +1,48 @@
+struct Distance
+{
+	private:
+		int iFeet;
+		float fInches;
+	public:
+		void setFeet(int x)
+		{
+			iFeet=x;
+		}
+		int getFeet()
+		{
+			return iFeet;	
+		}
+		void setInches(float y)
+		{
+			fInches=y;
+		}
+		float getInches()
+		{
+			return fInches;
+		}
+};
+
+can also be written as
+
+struct Distance
+{
+	void setFeet(int x) 	//public by default
+	{
+		iFeet=x;
+	}
+	int getFeet() 	//public by default
+	{	
+		return iFeet;
+	}
+	void setInches(float y) 	//public by default
+	{
+		fInches=y;
+	}
+	float getInches() 	//public by default
+	{
+		return fInches;
+	}
+	private:
+		int iFeet;
+		float fInches;
+};
